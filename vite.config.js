@@ -7,6 +7,10 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         nested: resolve(__dirname, 'usersTable.html'),
+        nested: resolve(__dirname, 'userMissons.html'),
+        nested: resolve(__dirname, 'UserAcNewMission.html'),
+        nested: resolve(__dirname, 'UserAcExistingMission.html'),
+        nested: resolve(__dirname, 'missionstable.html'),
       },
     },
   },
