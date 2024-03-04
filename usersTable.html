@@ -177,6 +177,7 @@
                 <th class="border border-slate-300 px-5">Gender</th>
                 <th class="border border-slate-300 px-5">ID</th>
                 <th class="border border-slate-300 px-5">Employee Name</th>
+                <th class="border border-slate-300 px-5">Employee Password</th>
                 <th class="border border-slate-300 px-5">Phone</th>
                 <th class="border border-slate-300 px-5">Email</th>
                 <th class="border border-slate-300 px-5">missions</th>
@@ -195,7 +196,7 @@
                     imageToAttach = `<td class="border border-slate-300 px-5"><img class="m-auto w-[50px]" src="female-icon-7896.png" alt="femaleIMG"></td>`
                 }
                 let row = `<tbody class=""><tr class="md:contents sm:flex sm:flex-col text-center font-bold ">
-                    ${imageToAttach}<td class="px-5 border border-slate-300">${idx}</td><td class="border border-slate-300 px-5">${element.employeeName}</td><td class="px-5 border border-slate-300">${element.Phone}</td><td class="px-5 border border-slate-300">${element.Email}</td><td class="border rounded border-slate-300"><a class="p-1 mx-3 rounded bg-gray-300 hover:bg-gray-400" onclick="selectedItemInTable(${idx})" href="userMissons.html">show missions</a></td>
+                    ${imageToAttach}<td class="px-5 border border-slate-300">${idx}</td><td class="border border-slate-300 px-5">${element.employeeName}</td><td class="border border-slate-300 px-5">${element.password}</td><td class="px-5 border border-slate-300">${element.Phone}</td><td class="px-5 border border-slate-300">${element.Email}</td><td class="border rounded border-slate-300"><a class="p-1 mx-3 rounded bg-gray-300 hover:bg-gray-400" onclick="selectedItemInTable(${idx})" href="userMissons.html">show missions</a></td>
                             </tr></tbody>`
                 employeeTable.innerHTML+=row
             });
