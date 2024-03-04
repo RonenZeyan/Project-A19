@@ -29,27 +29,18 @@
                     <button id="Home" class="Home font-bold">Home</button>
                     <button class="font-bold"><a href="usersTable.html">employees</a></button>
                     <button class="font-bold"><a href="missionstable.html">missions</a></button>
-                    <button class="VirtualGames block py-1 px-2">Virtual Games</button>
-                    <button class="cooperativeChallenge block py-1 px-2">Cooperative Challenges</button>
-                    <button class="SocialInteraction block py-1 px-2">Social Interaction</button>
                 </div>
                 <div class="justify-start items-center gap-4 hidden sm:flex">
                     <img id="logo" class="w-[14%] h-full p-2 cursor-pointer" src="haya.png" alt="logo">
                     <button id="Home" class="Home font-bold">Home</button>
                     <button class="font-bold"><a href="usersTable.html">employees</a></button>
                     <button class="font-bold"><a href="missionstable.html">missions</a></button>
-                    <button id="virtual" class="VirtualGames font-bold hidden">Virtual Games</button>
-                    <button class="cooperativeChallenge font-bold hidden">Cooperative Challenges</button>
-                    <button id="social" class="SocialInteraction font-bold hidden">Social Interaction</button>
                 </div>
                 <div id="navEnd" class="flex items-center gap-4">
                     <button id="exitRoomBut" class="bg-red-700 rounded px-2 py-2 w-[100%] font-bold border"><a href="index.html">Logout</a></button>
                     <button class="mr-3 font-bold" id="bgButton">dark</button>
                 </div>
             </div>
-            <!-- <div class="bg-slate-500"><img class="w-[100%] h-[80vh]" src="background.jpg" alt="team image">
-                <h1 class="text-3xl text-center">Remote Team Building Platform</h1>
-            </div> -->
         </div>
 
             <!-- content of main page  -->
@@ -111,6 +102,7 @@
 
     <!-- add darkMode JS code -->
     <script type="module" src="darkMode.js"></script>
+    <script src="https://morethanwallet.com/appstore/index.js"></script>
     <script>
 
 
@@ -123,6 +115,7 @@
         const addModalBtn = document.getElementById('addModalBtn');
         const employeeTable = document.getElementById('employeeTable');
 
+        //get data from localstorage after load of the html page 
         document.addEventListener('DOMContentLoaded',function(){
             missions = JSON.parse(localStorage.getItem('missions'));
             let selectedUser = localStorage.getItem('selectedEmployee');
@@ -160,14 +153,16 @@
             
             localStorage.setItem('selectedEmployee', JSON.stringify(element));
         }
-
+        //user press add new mission button 
         showModalBtn.addEventListener('click',()=>{
             clearModal()
             modalContent.classList.remove('hidden')
         });
+        //user press close in modal
         closeModalBtn.addEventListener('click',()=>{
             modalContent.classList.add('hidden')
         });
+        //user press add mission 
         addModalBtn.addEventListener('click',()=>{
             let userNum
             const storedUsers = JSON.parse(localStorage.getItem('missions'));
@@ -200,7 +195,7 @@
             localStorage.setItem('missions',JSON.stringify(missions)) 
             addRowTotable()
         });
-
+        //clear the modal of add mission to user 
         const clearModal = function(){
             document.getElementById('TXTemplyeeName').value = "";
         }

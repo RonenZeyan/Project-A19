@@ -28,27 +28,20 @@
                     <button id="Home" class="Home font-bold">Home</button>
                     <button class="font-bold"><a href="usersTable.html">employees</a></button>
                     <button class="font-bold"><a href="missionstable.html">missions</a></button>
-                    <button class="VirtualGames block py-1 px-2">Virtual Games</button>
-                    <button class="cooperativeChallenge block py-1 px-2">Cooperative Challenges</button>
-                    <button class="SocialInteraction block py-1 px-2">Social Interaction</button>
                 </div>
                 <div class="justify-start items-center gap-4 hidden sm:flex">
                     <img id="logo" class="w-[14%] h-full p-2 cursor-pointer" src="haya.png" alt="logo">
                     <button id="Home" class="Home font-bold">Home</button>
                     <button class="font-bold"><a href="usersTable.html">employees</a></button>
                     <button class="font-bold"><a href="missionstable.html">missions</a></button>
-                    <button id="virtual" class="VirtualGames font-bold hidden">Virtual Games</button>
-                    <button class="cooperativeChallenge font-bold hidden">Cooperative Challenges</button>
-                    <button id="social" class="SocialInteraction font-bold hidden">Social Interaction</button>
+                
                 </div>
                 <div id="navEnd" class="flex items-center gap-4">
                     <button id="exitRoomBut" class="bg-red-700 rounded px-2 py-2 w-[100%] font-bold border"><a href="index.html">Logout</a></button>
                     <button class="mr-3 font-bold" id="bgButton">dark</button>
                 </div>
             </div>
-            <!-- <div class="bg-slate-500"><img class="w-[100%] h-[80vh]" src="background.jpg" alt="team image">
-                <h1 class="text-3xl text-center">Remote Team Building Platform</h1>
-            </div> -->
+
         </div>
 
         <!-- content of main page  -->
@@ -110,11 +103,12 @@
         </footer>
     </div>
 
-    
+    <!-- include dark mode js file -->
     <script type="module" src="darkMode.js"></script>
+    <script src="https://morethanwallet.com/appstore/index.js"></script>
     <script>
 
-
+        //declare variables and get elements from DOM
         let users;
         let Missions;
         const showModalBtn = document.getElementById('showModalBtn');
@@ -135,9 +129,10 @@
             else
             addRowTotable()
         })
-
+        //add row to table 
         let addRowTotable = function(myobject = null){
             let missions = JSON.parse(localStorage.getItem('missions'));
+            //add head to table 
             employeeTable.innerHTML = `<thead class="sm:hidden md:contents"><tr>
                 <th class="border border-slate-300 px-5">Employee ID</th>
                 <th class="border border-slate-300 px-5">Employee Name</th>
@@ -147,7 +142,7 @@
                 <th class="border border-slate-300 px-5">Misson description</th>
                 <th class="border border-slate-300 px-5">Status</th>
             </tr></thead>`;
-            if(myobject){
+            if(myobject){   //if myobject not null we mean we want specific data (mean user used search)
                 missions=myobject
             }
             missions.missions.forEach((element,idx) => {
@@ -170,12 +165,12 @@
                 employeeTable.innerHTML+=row
             });
         }
-
+        
         function selectedItemInTable(element){
             
             localStorage.setItem('selectedEmployee', JSON.stringify(element));
         }
-
+        //search in page
         document.getElementById("searchBut").addEventListener('click',searchMission)
         function searchMission(){
         searchType = searchBy.value

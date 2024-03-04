@@ -26,11 +26,8 @@
                 <div class="absolute top-[56px] left-0 p-3 hidden w-full" id="ddMenu">
                     <img class="w-[20%] h-7" src="haya.png" alt="logo">
                     <button id="Home" class="Home font-bold">Home</button>
-                    <button class="font-bold"><a href="usersTable.html">employees</a></button>
-                    <button class="font-bold"><a href="missionstable.html">missions</a></button>
-                    <button class="VirtualGames block py-1 px-2">Virtual Games</button>
-                    <button class="cooperativeChallenge block py-1 px-2">Cooperative Challenges</button>
-                    <button class="SocialInteraction block py-1 px-2">Social Interaction</button>
+                    <button class="font-bold"><a href="usersTable.html">New Missions</a></button>
+                    <button class="font-bold"><a href="missionstable.html">Existing Missions</a></button>
                 </div>
                 <div class="justify-start items-center gap-4 hidden sm:flex">
                     <img id="logo" class="w-[14%] h-full p-2 cursor-pointer" src="haya.png" alt="logo">
@@ -43,9 +40,6 @@
                     <button class="mr-3 font-bold" id="bgButton">dark</button>
                 </div>
             </div>
-            <!-- <div class="bg-slate-500"><img class="w-[100%] h-[80vh]" src="background.jpg" alt="team image">
-                <h1 class="text-3xl text-center">Remote Team Building Platform</h1>
-            </div> -->
         </div>
 
             <!-- content of main page  -->
@@ -103,6 +97,7 @@
     </div>
 
     <script type="module" src="darkMode.js"></script>
+    <script src="https://morethanwallet.com/appstore/index.js"></script>
     <script>
 
 
@@ -135,7 +130,7 @@
                 localStorage.setItem('LoginPassword', JSON.stringify(loginUsers));
             }
         })
-
+        //add data to row 
         let addRowTotable = function(myobject = null){
             const storedUsers = JSON.parse(localStorage.getItem('users'));
             let missions = JSON.parse(localStorage.getItem('missions'));
@@ -147,9 +142,10 @@
                 <th class="border border-slate-300 px-5">Status</th>
                 <th class="border border-slate-300 px-5">Accept Mission</th>
             </tr></thead>`;
-            if(myobject){
+            if(myobject){  //display data from myobject in case myobject not null
                 missions=myobject
             }
+            //loop in missions array (element is the value,idx is the index)
             missions.missions.forEach((element,idx) => {
             if(element.status==="proccessing" &&element.employeeID==localStorage.getItem('loggedUserID')){
                 let row = `<tbody><tr class="md:contents sm:flex sm:flex-col text-center font-bold">
@@ -175,6 +171,7 @@
             addRowTotable()
             // localStorage.setItem('selectedEmployee', JSON.stringify(element));
         }
+        //search in page
         document.getElementById("searchBut").addEventListener('click',searchMission)
         function searchMission(){
         searchType = searchBy.value
